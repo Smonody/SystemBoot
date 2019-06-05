@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smonody.dao.CustomerDao">
+    <!--todo 查询用户-->
+    <!--根据id查找用户-->
+    <select id="findCustomerById" parameterType="Integer" resultType="smonody.pojo.Customer">
+        select * from cusdetailes where id=#{id}
+    </select>
+    <!--查询所有用户-->
+    <select id="findCustomerAll" resultType="customer">
+        select * from cusdetailes
+    </select>
+    <!--todo 动态更新用户信息-->
+    <update id="updateCustomer" parameterType="customer">
+        update cusdetailes
+        <!--<trim prefix="set" suffixOverrides=",">
+            <if test="name!=null">cusName=#{cusName},</if>
+            <if test="cusFrom!=null">cusFrom=#{cusFrom},</if>
+            <if test="cusIndustry!=null">cusIndustry=#{cusIndustry},</if>
+            <if test="cusPhone!=null">cusPhone=#{cusPhone},</if>
+            <if test="cusFixedPhone!=null">cusFixedPhone=#{cusFixedPhone},</if>
+            <if test="cusOperation!=null">cusOperation=#{cusOperation},</if>
+        </trim>-->
+        <set>
+            <if test="cusName!=null and cusName!=''">cusName=#{cusName},</if>
+            <if test="cusFrom!=null and cusFrom!=''">cusFrom=#{cusFrom},</if>
+            <if test="cusIndustry!=null and cusIndustry!=''">cusIndustry=#{cusIndustry},</if>
+            <if test="cusLevel!=null and cusLevel!=''">cusLevel=#{cusLevel},</if>
+            <if test="cusPhone!=null and cusPhone!=''">cusPhone=#{cusPhone},</if>
+            <if test="cusFixedPhone!=null and cusFixedPhone!=''">cusFixedPhone=#{cusFixedPhone},</if>
+            <if test="cusOperation!=null and cusOperation !=''">cusOperation=#{cusOperation},</if>
+        </set>
+            where id = #{id}
+    </update>
+    <!--todo 添加客户信息-->
+    <insert id="addCustomer" parameterType="customer" keyProperty="id" useGeneratedKeys="true">
+        insert into cusdetailes (cusName,cusFrom,cusIndustry,cusLevel,cusPhone,cusFixedPhone,cusOperation)
+        values (#{cusName},#{cusFrom},#{cusIndustry},#{cusLevel},#{cusPhone},#{cusFixedPhone},#{cusOperation})
+    </insert>
+    <!--todo 删除客户信息-->
+    <delete id="deleteCustomer" parameterType="Integer" >
+        delete from cusdetailes where id = #{id}
+    </delete>
+    <!--todo 动态查询客户信息-->
+    <!--如果写了id != ''，会自动转成字符串型-->
+    <select id="findCustomer" parameterType="customer" resultType="customer">
+        select * from cusdetailes
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="cusName!=null and cusName!=''">
+                and cusName like concat('%',#{cusName},'%')
+            </if>
+            <if test="cusFrom!=null and cusFrom!=''">
+                and cusFrom like concat('%',#{cusFrom},'%')
+            </if>
+            <if test="cusIndustry!=null and cusIndustry!=''">
+                and cusIndustry like concat('%',#{cusIndustry},'%')
+            </if>
+            <if test="cusLevel!=null and cusLevel!=''">
+                and cusLevel like concat('%',#{cusLevel},'%')
+            </if>
+            <if test="cusPhone!=null and cusPhone!=''">
+                and cusPhone like concat('%',#{cusPhone},'%')
+            </if>
+            <if test="cusFixedPhone!=null and cusFixedPhone!=''">
+                and cusFixedPhone like concat('%',#{cusFixedPhone},'%')
+            </if>
+            <if test="cusOperation!=null and cusOperation !=''">
+                and cusOperation like concat('%',#{cusOperation},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

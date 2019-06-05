@@ -1,0 +1,109 @@
+#select{
+    text-align: center;
+    width: auto;
+    height: 90%;
+}
+#userTable{
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    color: #606266;
+    cellpadding: 0px;
+    color: #909399;
+}
+tr{
+    padding: 12px 0;
+    min-width: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: center;
+}
+td{
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#tableTitle{
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 黑体;
+}
+
+label{
+    float: none;
+    display: inline-block;
+    color: #409EFF;
+    width: 10em;
+}
+span{
+    float: none;
+    display: inline-block;
+    color: #409EFF;
+    display: inline-block;
+}
+input{
+    -webkit-appearance: none;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    box-sizing: border-box;
+    color: rgb(96, 98, 102);
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(220, 223, 230);
+    border-image: initial;
+    outline: 0px;
+    padding: 0px 15px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+input:hover{
+    color: #409EFF;
+}
+.buttonGroup{
+    display: block;
+    margin-top: 6%;
+    margin-left: 50%;
+}
+#elHeader{
+    height: 100px;
+    text-align: right;
+    font-size: 1rem;
+}
+#del{
+    margin-left: 3em;
+}
+a{
+    float: none;
+    display: inline-block;
+    color: #409EFF;
+    display: inline-block;
+    margin-left: 20%;
+    text-decoration:none
+}
+#adminSet{
+    display: -webkit-inline-box;
+    margin-left: 5px;
+}
+h3{
+    display: inline-block;
+    color: #409EFF;
+    opacity: 0.8;
+}

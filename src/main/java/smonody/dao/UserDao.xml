@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smonody.dao.UserDao">
+    <!--todo 查询用户-->
+    <!--根据Name查找用户-->
+    <select id="findUserByName" parameterType="smonody.pojo.User" resultType="smonody.pojo.User">
+        select * from userbaseinformation where username=#{userName} and password=#{passWord}
+    </select>
+  <!--  &lt;!&ndash;获取记录数&ndash;&gt;
+    <select id="findUserByName" parameterType="smonody.pojo.User" resultType="smonody.pojo.User">
+        select * from userbaseinformation where username=#{userName} and password=#{passWord}
+    </select>-->
+</mapper>
